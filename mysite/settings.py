@@ -38,6 +38,8 @@ if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
 
 
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+
 # Application definition
 
 INSTALLED_APPS = [
