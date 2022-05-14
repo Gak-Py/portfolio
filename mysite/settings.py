@@ -39,8 +39,8 @@ except ImportError:
 
 # 本番環境では環境変数から値を取得する
 if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    # SECRET_KEY = os.getenv['SECRET_KEY']
+    # SECRET_KEY = os.environ['SECRET_KEY']
+    SECRET_KEY = os.getenv['SECRET_KEY']
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
