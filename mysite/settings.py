@@ -33,7 +33,7 @@ try:
     from .local_settings import *
 except ImportError:
     from dotenv import load_dotenv
-    project_folder = os.path.expanduser('~/jipdesign.pythonanywhere.com/')  # adjust as appropriate
+    project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
     load_dotenv(os.path.join(project_folder, '.env'))
     pass
 
