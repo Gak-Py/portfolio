@@ -27,16 +27,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Falseに設定
 DEBUG = False
 
+
 # 開発環境ではlocal_settingsが読み込まれDEBUGがTrueになる
 try:
     from .local_settings import *
 except ImportError:
+    from dotenv import load_dotenv
+    project_folder = os.path.expanduser('~/jipdesign.pythonanywhere.com/')  # adjust as appropriate
+    load_dotenv(os.path.join(project_folder, '.env'))
     pass
 
 # 本番環境では環境変数から値を取得する
 if not DEBUG:
-    # SECRET_KEY = os.environ['SECRET_KEY']
-    SECRET_KEY = os.getenv['SECRET_KEY']
+    SECRET_KEY = os.environ['SECRET_KEY']
+    # SECRET_KEY = os.getenv['SECRET_KEY']
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
