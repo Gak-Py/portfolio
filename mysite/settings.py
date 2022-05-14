@@ -34,7 +34,7 @@ try:
 except ImportError:
     from dotenv import load_dotenv
     project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
-    load_dotenv(os.path.join(project_folder, '.env'))
+    load_dotenv(os.path.join('jipdesign', '.env'))
     pass
 
 # 本番環境では環境変数から値を取得する
