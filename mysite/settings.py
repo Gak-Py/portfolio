@@ -29,18 +29,23 @@ DEBUG = False
 
 
 # 開発環境ではlocal_settingsが読み込まれDEBUGがTrueになる
-try:
-    from .local_settings import *
-except ImportError:
-    pass
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     pass
 
 # 本番環境では環境変数から値を取得する
 if not DEBUG:
+    import os
+    from os.path import join, dirname
     from dotenv import load_dotenv
-    project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
-    load_dotenv(os.path.join('jipdesign', '.env'))
+    load_dotenv(verbose=True)
+    dotenv_path = join(dirname(__file__), '.env')
+    load_dotenv(dotenv_path)
+    # project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
+    # load_dotenv(os.path.join('jipdesign', '.env'))
     # SECRET_KEY = os.environ['SECRET_KEY']
-    SECRET_KEY = os.getenv['SECRET_KEY']
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
