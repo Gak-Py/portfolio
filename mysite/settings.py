@@ -32,13 +32,13 @@ DEBUG = False
 try:
     from .local_settings import *
 except ImportError:
-    from dotenv import load_dotenv
-    project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
-    load_dotenv(os.path.join('jipdesign', '.env'))
     pass
 
 # 本番環境では環境変数から値を取得する
 if not DEBUG:
+    from dotenv import load_dotenv
+    project_folder = os.path.expanduser('~/jipdesign/')  # adjust as appropriate
+    load_dotenv(os.path.join('jipdesign', '.env'))
     # SECRET_KEY = os.environ['SECRET_KEY']
     SECRET_KEY = os.getenv['SECRET_KEY']
 
