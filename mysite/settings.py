@@ -29,10 +29,10 @@ DEBUG = False
 
 
 # 開発環境ではlocal_settingsが読み込まれDEBUGがTrueになる
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass
 
 # 本番環境では環境変数から値を取得する
 if not DEBUG:
